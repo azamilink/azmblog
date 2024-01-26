@@ -1,0 +1,8 @@
+nama website: https://azmblog.000webhostapp.com/
+password: 
+
+db host: localhost
+db name: id21624863_azm_blog
+username: id21624863_azmblog
+password: Azamiset!sosmed
+
