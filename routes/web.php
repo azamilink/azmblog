@@ -8,28 +8,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
-
-
-
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home",
-        "active" => 'home',
-    ]);
-});
-
-Route::get('/about', function () {
-    return view('about', [
-        "title" => "About",
-        "active" => 'about',
-        "name" => "Aswad Zami",
-        "email" => "zamiaswad@gmail.com",
-        "image" => "aswad.jpg"
-    ]);
-});
+use Illuminate\Support\Facades\Artisan;
 
 // Halaman blog
-Route::get('/blog', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])->name('blog');
 
 // Halaman single post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
@@ -77,24 +59,6 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-
-// Halaman single category
-/** 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('category', [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->name
-    ]);
+Route::get('/symlink', function () {
+    Artisan::call('storage:link');
 });
- */
-
-// Halaman single author
-/** 
-Route::get('/authors/{user:username}', function (User $user) {
-    return view('blog', [
-        'title' => 'User Posts',
-        'blogs' => $user->posts,
-    ]);
-});
- */

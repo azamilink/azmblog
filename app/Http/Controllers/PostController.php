@@ -9,19 +9,6 @@ use App\Models\User;
 
 class PostController extends Controller
 {
-    /** 
-    public function index()
-    {
-        return view('blog', [
-            "title" => "All Posts",
-            "active" => 'blog',
-            // "posts" => Post::all()
-            // "blogs" => Post::with(['author', 'category'])->latest()->get()
-            "blogs" => Post::latest()->get()
-        ]);
-    }
-     */
-
     public function index()
     {
         $title = '';
@@ -41,8 +28,6 @@ class PostController extends Controller
                 ->filter(request(['search', 'category', 'author']))
                 ->paginate(7)
                 ->withQueryString()
-            // "posts" => Post::all()
-            // "blogs" => Post::with(['author', 'category'])->latest()->get()
         ]);
     }
 

@@ -25,7 +25,7 @@
             @if ($blogs[0]->image)
                 <img src="{{ asset('storage/' . $blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
             @else
-                <img src="https://source.unsplash.com/1200x400?{{ $blogs[0]->category->name }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
+                <img src="https://api.unsplash.com/photos/?client_id=WYIGj3tI5-Y3islHN7z-Eo4-mIqATrL0oBGxcKHFXew" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
             @endif
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $blogs[0]->slug }}" class="text-decoration-none text-dark">{{ $blogs[0]->title }}</a></h3>
