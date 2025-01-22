@@ -1,0 +1,49 @@
+{
+    "version": 2,
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.1"
+        }
+    },
+    "routes": [
+        {
+            "src": "/storage/(.*)",
+            "dest": "/storage/$1"
+        },
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "public": "true",
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://azmblog.vercel.app/",
+        "APP_KEY": "base64:DHosr6RbYYl7GN3cJ4nb35nY2+q/ABX9Cn5efET135g=",
+        "APP_CONFIG_CACHE": "/tmp/config.php",
+        "APP_EVENTS_CACHE": "/tmp/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/services.php",
+        "VIEW_COMPILED_PATH": "/tmp",
+
+        "CACHE_DRIVER": "array",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "cookie",
+
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "o9pk6.h.filess.io",
+        "DB_PORT": "3306",
+        "DB_DATABASE": "azmblog_finesureby",
+        "DB_USERNAME": "azmblog_finesureby",
+        "DB_PASSWORD": "dde6a7c2cad2402e7fb432b26cd0a8b2b0ffdc7b",
+
+        "FILESYSTEM_DISK": "public"
+    },
+    "outputDirectory": "public"
+}
