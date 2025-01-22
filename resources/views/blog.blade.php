@@ -3,6 +3,7 @@
 @section('container')
     <h1 class="mb-3 text-center">{{ $title }}</h1>
 
+
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/blog">
@@ -25,7 +26,7 @@
             @if ($blogs[0]->image)
                 <img src="{{ asset('storage/' . $blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
             @else
-                <img src="https://source.unsplash.com/600x400" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
+                <img src="#" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
             @endif
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $blogs[0]->slug }}" class="text-decoration-none text-dark">{{ $blogs[0]->title }}</a></h3>
@@ -43,15 +44,15 @@
 
         <div class="container">
             <div class="row">
-                @foreach ($blogs->skip(1) as $blog)
+                @foreach ($blogs->skip(1) as $key => $blog)
                     <div class="col-md-4 mb-3">
-                        <div class="card">
+                        <div class="card" style="max-height: 600px">
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/blog?category={{ $blog->category->slug }}" class="text-white text-decoration-none">{{ $blog->category->name }}</a></div>
 
                             @if ($blog->image)
-                                <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->category->name }}" class="im-fluid">
+                                <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->category->name }}" class="im-fluid" style="max-height: 150px">
                             @else
-                                <img src="https://source.unsplash.com/1200x400?{{ $blog->category->name }}" alt="{{ $blog->category->name }}" class="img-fluid">
+                                <img src="{{ $photos[$key]['urls']['small'] }}" alt="{{ $blog->category->name }}" class="img-fluid" style="max-height: 150px">
                             @endif
 
                             <div class="card-body">

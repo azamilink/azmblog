@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardPostController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,13 +18,7 @@ Route::get('/', [PostController::class, 'index'])->name('blog');
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 // Halaman category
-Route::get('/categories', function () {
-    return view('categories', [
-        "title" => "Categories",
-        "active" => 'categories',
-        "categories" => Category::all(),
-    ]);
-});
+Route::get('/categories', [CategoriesController::class, 'index']);
 
 // Halaman single category
 Route::get('/categories/{category:slug}', function (Category $category) {
