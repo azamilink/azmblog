@@ -1,15 +1,11 @@
 {
     "version": 2,
+    "framework": null,
     "functions": {
-        "api/index.php": {
-            "runtime": "vercel-php@0.7.1"
-        }
+        "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
+    "outputDirectory": "public",
     "routes": [
-        {
-            "src": "/storage/(.*)",
-            "dest": "/storage/$1"
-        },
         {
             "src": "/build/(.*)",
             "dest": "/build/$1"
@@ -19,10 +15,9 @@
             "dest": "/api/index.php"
         }
     ],
-    "public": "true",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://azmblog.vercel.app/",
         "APP_KEY": "base64:DHosr6RbYYl7GN3cJ4nb35nY2+q/ABX9Cn5efET135g=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
@@ -44,6 +39,5 @@
         "DB_PASSWORD": "dde6a7c2cad2402e7fb432b26cd0a8b2b0ffdc7b",
 
         "FILESYSTEM_DISK": "public"
-    },
-    "outputDirectory": "public"
+    }
 }
