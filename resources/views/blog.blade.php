@@ -25,7 +25,7 @@
             @if ($blogs[0]->image)
                 <img src="{{ asset('storage/' . $blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
             @else
-                <img src="https://api.unsplash.com/photos/?client_id=WYIGj3tI5-Y3islHN7z-Eo4-mIqATrL0oBGxcKHFXew" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
+                <img src="https://source.unsplash.com/600x400" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
             @endif
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $blogs[0]->slug }}" class="text-decoration-none text-dark">{{ $blogs[0]->title }}</a></h3>
@@ -77,15 +77,3 @@
         {{ $blogs->links() }}
     </div>
 @endsection
-
-{{-- @foreach ($blogs->skip(1) as $blog)
-        <article class="mb-5 border-bottom pb-4">
-            <h2><a href="/posts/{{ $blog->slug }}" class="text-decoration-none">{{ $blog->title }}</a></h2>
-
-            <p>By. <a href="/authors/{{ $blog->author->username }}">{{ $blog->author->name }}</a> in <a href="/categories/{{ $blog->category->slug }}" class="text-decoration-none">{{ $blog->category->name }}</a></p>
-
-            <p>{{ $blog->excerpt }}</p>
-
-            <a href="/posts/{{ $blog->slug }}" class="text-decoration-none">Read more...</a>
-        </article>
-    @endforeach --}}
