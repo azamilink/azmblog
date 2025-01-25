@@ -29,8 +29,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $search = $this->searchPhoto('web development');
-        $photos = $search['results'];
+        $searchPhotos = $this->searchPhoto('web development');
+        $photos = $searchPhotos['results'];
         $title = '';
 
         if (request('category')) {

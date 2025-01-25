@@ -26,7 +26,7 @@
             @if ($blogs[0]->image)
                 <img src="{{ asset($blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
             @else
-                <img src="#" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
+                <img src="{{ $photos[0]['urls']['small'] }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
             @endif
             <div class="card-body text-center">
                 <h3 class="card-title"><a href="/posts/{{ $blogs[0]->slug }}" class="text-decoration-none text-dark">{{ $blogs[0]->title }}</a></h3>
