@@ -3,7 +3,7 @@
     "framework": null,
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.7.3"
+            "runtime": "vercel-php@0.7.1"
         }
     },
     "outputDirectory": "public",
@@ -19,7 +19,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://azmblog.vercel.app/",
         "APP_KEY": "base64:DHosr6RbYYl7GN3cJ4nb35nY2+q/ABX9Cn5efET135g=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
