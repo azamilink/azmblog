@@ -9,6 +9,10 @@
     "outputDirectory": "public",
     "routes": [
         {
+            "src": "/post-images/(.*)",
+            "dest": "/post-images/$1"
+        },
+        {
             "src": "/build/(.*)",
             "dest": "/build/$1"
         },
