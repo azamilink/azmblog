@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\File;
 
 class DashboardPostController extends Controller
 {
@@ -91,7 +92,7 @@ class DashboardPostController extends Controller
         // Cek apakah ada gambar yang dimasukan:
         if ($request->file('image')) {
             if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+                File::delete($request->oldImage);
             }
 
             $validatedData['image'] = $request->file('image')->move('post-images');
