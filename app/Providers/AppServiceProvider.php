@@ -18,7 +18,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(UnsplashServices::class, UnsplashServicesImp::class);
+         if ($this->app->environment('local') && config('clockwork.enable')) {
+        $this->app->register(\Clockwork\Support\Laravel\ClockworkServiceProvider::class);
+    }
     }
 
     /**

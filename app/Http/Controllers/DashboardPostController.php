@@ -11,11 +11,7 @@ use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('dashboard.posts.index', [
@@ -23,11 +19,7 @@ class DashboardPostController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('dashboard.posts.create', [
@@ -35,12 +27,7 @@ class DashboardPostController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         // Ambil data dari requets dan lakukan validasi:
@@ -54,7 +41,7 @@ class DashboardPostController extends Controller
 
         // Cek apakah ada gambar yang dimasukan:
         if ($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->move('post-images');
         }
 
         // Tambahkan data baru ke field user_id dan excerpt:
@@ -67,12 +54,7 @@ class DashboardPostController extends Controller
         return redirect('/dashboard/posts')->with('success', 'new post has been added!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Post $post)
     {
         return view('dashboard.posts.show', [
@@ -80,12 +62,7 @@ class DashboardPostController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Post $post)
     {
         return view('dashboard.posts.edit', [
@@ -94,13 +71,7 @@ class DashboardPostController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Post $post)
     {
         // Ambil data dari requets dan lakukan validasi:
@@ -123,7 +94,7 @@ class DashboardPostController extends Controller
                 Storage::delete($request->oldImage);
             }
 
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->move('post-images');
         }
 
         // Tambahkan data baru ke field user_id dan excerpt:

@@ -24,7 +24,7 @@
     @if ($blogs->count() > 0)
         <div class="card mb-3">
             @if ($blogs[0]->image)
-                <img src="{{ asset('storage/' . $blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
+                <img src="{{ asset($blogs[0]->image) }}" class="card-img-top" alt="{{ $blogs[0]->category->name }}" style="max-height: 400px; overflow: hidden;">
             @else
                 <img src="#" class="card-img-top" alt="{{ $blogs[0]->category->name }}">
             @endif
@@ -50,7 +50,7 @@
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/blog?category={{ $blog->category->slug }}" class="text-white text-decoration-none">{{ $blog->category->name }}</a></div>
 
                             @if ($blog->image)
-                                <img src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->category->name }}" class="im-fluid" style="max-height: 150px">
+                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->category->name }}" class="im-fluid" style="max-height: 150px">
                             @else
                                 <img src="{{ $photos[$key]['urls']['small'] }}" alt="{{ $blog->category->name }}" class="img-fluid" style="max-height: 150px">
                             @endif
