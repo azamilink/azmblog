@@ -6,7 +6,7 @@
 
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
-            <form action="/blog">
+            <form action="/">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
